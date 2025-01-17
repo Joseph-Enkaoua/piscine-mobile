@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Ex00',
+      title: 'Ex01',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
@@ -27,8 +27,6 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var text = "A simple text";
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -38,9 +36,8 @@ class MyHomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            TextCard(text: text),
-            SizedBox(
-              height: 10,
+            const Text(
+              'A simple text',
             ),
             ElevatedButton(
               onPressed: () {
@@ -49,34 +46,6 @@ class MyHomePage extends StatelessWidget {
               child: Text('Click me'),
             ),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class TextCard extends StatelessWidget {
-  const TextCard({
-    super.key,
-    required this.text,
-  });
-
-  final String text;
-
-  @override
-  Widget build(BuildContext context) {
-    var theme = Theme.of(context);
-    var style = theme.textTheme.displaySmall!
-        .copyWith(color: theme.colorScheme.onPrimary);
-
-    return Card(
-      color: theme.colorScheme.primary,
-      child: Padding(
-        padding: const EdgeInsets.all(10),
-        child: Text(
-          text,
-          style: style,
-          semanticsLabel: text,
         ),
       ),
     );
